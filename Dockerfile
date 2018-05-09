@@ -7,3 +7,5 @@ RUN ./install.sh
 
 VOLUME /git
 WORKDIR /git
+
+ENTRYPOINT [ "hub" ]
