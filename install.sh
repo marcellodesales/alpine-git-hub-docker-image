@@ -4,7 +4,7 @@ set -ex
 
 apk add --update --no-cache bash wget openssh libc6-compat
 
-wget -O hub.tgz  --progress=dot:mega https://github.com/github/hub/releases/download/v2.3.0-pre10/hub-linux-amd64-2.3.0-pre10.tgz
+wget -O hub.tgz  --progress=dot:mega https://github.com/github/hub/releases/download/v2.12.3/hub-linux-amd64-2.12.3.tgz
 mkdir /hub
 tar -xvf hub.tgz -C /hub --strip-components 1
 alias git=hub
