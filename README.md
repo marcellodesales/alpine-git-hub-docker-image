@@ -28,11 +28,11 @@ publish: dist ## Publishes the built binaries in Github Releases
   tar -czvf dist/$(APP_NAME)-linux-amd64.tar.gz dist/$(APP_NAME)-linux-amd64
   zip -r dist/$(APP_NAME)-windows-amd64.zip dist/$(APP_NAME)-windows-amd64.exe
   docker run -ti -e GITHUB_HOST=$(PUBLISH_GITHUB_HOST) -e GITHUB_USER=$(PUBLISH_GITHUB_USER) \
-                 -e GITHUB_TOKEN=$(PUBLISH_GITHUB_TOKEN) -e GITHUB_REPOSITORY=$(PUBLISH_GITHUB_ORG)/$(APP_NAME) 
-                 -e HUB_PROTOCOL=https 
-                 -v $(PWD):/git marcellodesales/github-hub release create 
-                          --prerelease --attach dist/$(APP_NAME)-darwin-amd64.tar.gz 
-                          --attach dist/$(APP_NAME)-linux-amd64.tar.gz 
-                          --attach dist/$(APP_NAME)-windows-amd64.zip 
+                 -e GITHUB_TOKEN=$(PUBLISH_GITHUB_TOKEN) -e GITHUB_REPOSITORY=$(PUBLISH_GITHUB_ORG)/$(APP_NAME) \
+                 -e HUB_PROTOCOL=https \
+                 -v $(PWD):/git marcellodesales/github-hub release create \
+                          --prerelease --attach dist/$(APP_NAME)-darwin-amd64.tar.gz \
+                          --attach dist/$(APP_NAME)-linux-amd64.tar.gz \
+                          --attach dist/$(APP_NAME)-windows-amd64.zip \
                           -m "protocool $(BIN_VERSION) release" v$(BIN_VERSION)
 ```
