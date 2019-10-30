@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+
+  github-hub:
+    image: marcellodesales/github-hub
+    build: .
